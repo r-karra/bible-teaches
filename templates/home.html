@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Teaches</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home.index') }}">Home</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}">Login</a>
+            <a href="{{ url_for('auth.register') }}">Register</a>
+        {% endif %}
+    </nav>
+    <h1 class="main-title">Bible Teaches</h1>
+    <div class="chat-container">
+        <div class="chat-history"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Enter your prompt here...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
